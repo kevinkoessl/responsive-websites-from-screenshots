@@ -9,7 +9,9 @@ const numberOfSamples = 1500;
     await page.goto('http://localhost:5000/');
 
     const directoryName = new Date().toISOString();
-    fs.mkdir(`${targetDirectory}/${directoryName}`);
+    if (!fs.existsSync(`${targetDirectory}/${directoryName}`)) {
+        fs.mkdir(`${targetDirectory}/${directoryName}`);
+    }
 
     for (let i = 0; i < numberOfSamples; i++) {
         let sampleDirectoryName = `${targetDirectory}/${directoryName}/${i.toString(16)}`;

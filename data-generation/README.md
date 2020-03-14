@@ -1,4 +1,4 @@
-# random-website
+# Random Data Generation
 
 ## Project setup
 ```
