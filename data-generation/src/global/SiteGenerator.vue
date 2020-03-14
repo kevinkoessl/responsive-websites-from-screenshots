@@ -1,7 +1,7 @@
 <template>
     <section>
         <b-container v-for="index in 3" v-bind:key="index" style="margin-bottom: 2rem">
-            <component :is="component()"/> <!--:customStyle="style"/-->
+            <component :is="component()"/>
         </b-container>
     </section>
 </template>
