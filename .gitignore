@@ -20,3 +20,4 @@ yarn-error.log*
 *.sln
 *.sw?
 /data-generation/datasets/
+/pix2code/
