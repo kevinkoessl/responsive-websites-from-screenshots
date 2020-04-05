@@ -1,9 +1,7 @@
 <template>
-    <b-card :title="hasHeader ? false : randomText('word')"
-            :header="hasHeader ? false : randomText('sentence', 3)"
-            :footer="hasFooter ? false : randomText('sentence')"
-            :bg-variant="cardVariant.bgVariant"
-            :text-variant="cardVariant.textVariant"
+    <b-card :title="hasTitle ? randomText('word') : null"
+            :header="hasHeader ? randomText('sentence', 3) : null"
+            :footer="hasFooter ? randomText('sentence') : null"
             :sub-title="hasSubtitle ? randomText('sentence', Math.floor(Math.random() * 3) + 1) : ''">
         <b-card-text>
             {{ randomText('paragraph')}}
@@ -14,7 +12,7 @@
             </b-button>
         </template>
         <template v-if="buttonLinksOrNothing === 1">
-            <b-link v-for="index in Math.ceil(Math.random() * 2)" :key="index">
+            <b-link v-for="index in numberOfLinks()" :key="index">
                 {{ randomText('word')}}
             </b-link>
         </template>
@@ -28,35 +26,44 @@
         name: "RandomCardContent",
         data() {
             return {
-                hasHeader: Math.round(utilities.boxMuellerTransform(0, 1, 0.7)),
+                hasHeader: Math.round(utilities.boxMuellerTransform(0, 1, 1.5)),
+                hasTitle: Math.round(utilities.boxMuellerTransform(0, 1, 1)),
                 hasSubtitle: Math.round(utilities.boxMuellerTransform(0, 1, 1)),
-                hasFooter: Math.round(utilities.boxMuellerTransform(0, 1, 0.7)),
+                hasFooter: Math.round(utilities.boxMuellerTransform(0, 1, 1.5)),
                 hasText: Math.round(utilities.boxMuellerTransform(0, 1, 1)),
                 buttonLinksOrNothing: (Math.floor(Math.random() * 3)),
+                links: 0,
+                button: '',
             }
-        }, computed: {
-            cardVariant() {
-                let bgVariant = false;
-                let textVariant = false;
-                if (Math.floor(Math.random() * 50) === 0) {
-                    bgVariant = this.randomVariant(false);
-                }
-                if (bgVariant && bgVariant !== 'light') {
-                    textVariant = 'white'
-                }
-
-                return {
-                    bgVariant,
-                    textVariant
-                }
-            },
+        },
+        props: {
+            rowIndex: Number,
+            cardIndex: Number,
+            md: Number,
+            lg: Number,
+        },
+        mounted() {
+            this.$store.dispatch("updateCol", {
+                position: {
+                    rowIndex: this.rowIndex,
+                    colIndex: this.cardIndex
+                },
+                lg: this.lg,
+                md: this.md,
+                hasHeader: this.hasHeader,
+                hasTitle: this.hasTitle,
+                hasSubtitle: this.hasSubtitle,
+                hasFooter: this.hasFooter,
+                links: this.links,
+                button: this.button,
+            });
         },
         methods: {
             randomText(type = 'sentence', length = null) {
                 return utilities.generateRandomString({type: type, length: length});
             },
             randomVariant(chanceForOutline) {
-                let variant = Math.floor(Math.random() * 8);
+                let variant = Math.floor(Math.random() * 4);
                 let outline = Math.round(utilities.boxMuellerTransform(0, 1, 0.7)) === 0;
                 let result = '';
                 if (chanceForOutline && outline) {
@@ -73,27 +80,17 @@
                         result += 'success';
                         break;
                     case 3 :
-                        result += 'danger';
-                        break;
-                    case 4 :
                         result += 'warning';
                         break;
-                    case 5 :
-                        result += 'info';
-                        break;
-                    case 6 :
-                        result += 'light';
-                        break;
-                    case 7 :
-                        result += 'dark';
-                        break;
                 }
+                this.button = "btn-" + result;
                 return result;
+            },
+            numberOfLinks() {
+                let numberOfLinks = Math.ceil(Math.random() * 2);
+                this.links = numberOfLinks;
+                return numberOfLinks;
             }
         }
     }
 </script>
-
-<style>
-
-</style>
