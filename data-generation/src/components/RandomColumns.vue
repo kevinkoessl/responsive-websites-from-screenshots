@@ -2,11 +2,9 @@
     <b-row>
         <b-col v-for="(column, index) in columnSplit"
                :key="index"
-               :sm="column.sm"
                :md="column.md"
-               :lg="column.lg"
-               :xl="column.xl">
-            <random-card-content/>
+               :lg="column.lg">
+            <random-card-content :md="column.md" :lg="column.lg" :rowIndex="parentIndex" :cardIndex="index"/>
         </b-col>
     </b-row>
 </template>
@@ -21,6 +19,9 @@
             return {
                 columnSplit: []
             }
+        },
+        props: {
+            parentIndex: Number
         },
         methods: {
             randomText(type = 'sentence', length = null) {
@@ -66,17 +67,10 @@
                 }
                 for (let i = 0; i < numberOfColumns; i++) {
                     this.columnSplit[i] = {
-                        sm: layouts[0][i],
-                        md: layouts[1][i],
-                        lg: layouts[2][i],
-                        xl: layouts[3][i],
+                        md: layouts[0][i],
+                        lg: layouts[1][i],
                     }
                 }
-            },
-            randomColor(saturation, lightness, hue = null) {
-                hue = hue ? hue : Math.trunc(Math.random() * 360);
-
-                return (`hsla(${hue},${saturation}%,${lightness}%,1)`)
             },
             calculateSplit(length, numberOfSplits) {
                 if (numberOfSplits === 0) {
@@ -119,14 +113,10 @@
             }
         },
         created() {
-            this.calculateRandomColumnLayout(4);
+            this.calculateRandomColumnLayout(2);
         },
         components: {
             RandomCardContent
         }
     }
 </script>
-
-<style lang="scss">
-
-</style>
