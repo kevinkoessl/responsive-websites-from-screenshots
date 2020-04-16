@@ -69,7 +69,7 @@ const store = new Vuex.Store({
 
             });
             guiObject = currentContainer.data;
-            let guiString = "body {\n";
+            let guiString = "";
             guiObject.forEach((container) => {
                 guiString += "container {\nrow {\n";
 
@@ -81,7 +81,6 @@ const store = new Vuex.Store({
                 guiString += "}\n}\n";
 
             });
-            guiString += "}";
             state.guiObject = guiObject;
 
             window.guiString = guiString;
