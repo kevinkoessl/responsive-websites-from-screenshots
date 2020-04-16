@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const targetDirectory = './datasets';
-const numberOfSamples = 50;
+const numberOfSamples = 210;
 
 (async () => {
     const browser = await puppeteer.launch();
@@ -10,17 +10,8 @@ const numberOfSamples = 50;
 
     const directoryName = new Date().toISOString();
     if (!fs.existsSync(`${targetDirectory}/${directoryName}`)) {
-        fs.mkdir(`${targetDirectory}/${directoryName}`);
+        fs.mkdirSync(`${targetDirectory}/${directoryName}`);
     }
-
-    /**
-    for (let i = 0; i < numberOfSamples; i++) {
-        let sampleDirectoryName = `${targetDirectory}/${directoryName}/${i.toString(16)}`;
-        if (!fs.existsSync(sampleDirectoryName)) {
-            fs.mkdir(sampleDirectoryName);
-        }
-    }
-     */
 
     for (let i = 0; i < numberOfSamples; i++) {
         let sampleDirectoryName = `${targetDirectory}/${directoryName}`;
