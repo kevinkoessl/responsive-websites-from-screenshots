@@ -8,6 +8,7 @@
 ### Install dependencies
 ```
 npm install
+npm install -g serve
 ```
 
 ### Generate Random Training Data
