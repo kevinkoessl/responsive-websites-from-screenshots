@@ -13,6 +13,7 @@ npm install -g serve
 
 ### Generate Random Training Data
 ```
+mkdir datasets
 npm run build
 serve -s dist
 node site-scraper.js
