@@ -1,3 +1,4 @@
+/** This function approximates a normal-distribution */
 function boxMuellerTransform(min, max, skew) {
     let u = 0, v = 0;
     while (u === 0) u = Math.random(); //Converting [0,1) to (0,1)
@@ -12,6 +13,12 @@ function boxMuellerTransform(min, max, skew) {
     return num;
 }
 
+/** This function generates random string.
+ *
+ * @param type: String [word, sentence, paragraph]
+ * @param length: Integer. Determines how many letters, words or sentences should be generated.
+ * @returns {string}
+ */
 function generateRandomString({type, length}) {
     let result = '';
     let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';

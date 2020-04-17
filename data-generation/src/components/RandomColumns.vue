@@ -13,6 +13,7 @@
     import {utilities} from '@/utilities/utilities.js'
     import RandomCardContent from "@/components/RandomCardContent";
 
+    /** Component that calculates a random column layout. Each Column is filled with a bootstrap card */
     export default {
         name: "RandomColumns",
         data() {

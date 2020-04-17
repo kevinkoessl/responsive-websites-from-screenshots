@@ -16,6 +16,7 @@ const store = new Vuex.Store({
         guiString: "",
     },
     mutations: {
+        /** This Function compiles the randomized gui data into a single string and stores it in the window object for later access */
         'WRITE_GUI_DATA'(state, guiData) {
             state.guiData = guiData;
             let guiObject = [];

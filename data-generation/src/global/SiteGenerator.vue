@@ -9,6 +9,7 @@
 <script>
     import RandomColumns from "@/components/RandomColumns";
 
+    /** Main Page Component */
     export default {
         name: 'SiteGenerator',
         components: {
