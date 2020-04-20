@@ -1,27 +1,19 @@
 # Random Data Generation
 
 ## Project setup
+### Prerequisites
+
+- npm
+
+### Install dependencies
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+npm install -g serve
 ```
 
 ### Generate Random Training Data
 ```
+mkdir datasets
 npm run build
 serve -s dist
 node site-scraper.js

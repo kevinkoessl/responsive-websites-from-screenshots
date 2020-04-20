@@ -22,6 +22,7 @@
 <script>
     import {utilities} from "@/utilities/utilities";
 
+    /** This component fills a bootstrap card with randomized content */
     export default {
         name: "RandomCardContent",
         data() {
