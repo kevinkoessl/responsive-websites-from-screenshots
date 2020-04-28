@@ -2,5 +2,8 @@
 ## Training Data
 Folder **./data-generation** Contains code to create a random dataset of images and code to use as training data.
 
-## Model
-Contains a Model that learns to generate code from responsive website mockups.
+## pix2code
+```
+cd pix2code
+git clone https://github.com/kevinkoessl/pix2code.git
+```
