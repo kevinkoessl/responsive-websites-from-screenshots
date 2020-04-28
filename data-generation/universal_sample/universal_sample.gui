@@ -1,0 +1,134 @@
+container {
+row {
+col {
+md-1, lg-1
+}
+col-body {
+card {
+card-body {
+card-title, card-text, link
+}
+}
+}
+col {
+md-2, lg-2
+}
+col-body {
+card {
+card-body {
+card-title, card-text, btn-secondary
+}
+}
+}
+col {
+md-3, lg-3
+}
+col-body {
+card {
+card-body {
+card-title, card-text, btn-primary
+}
+}
+}
+col {
+md-6, lg-6
+}
+col-body {
+card {
+card-body {
+card-title, card-subtitle, card-text
+}
+}
+}
+}
+row {
+col {
+md-5, lg-5
+}
+col-body {
+card {
+card-body {
+card-title, card-text, btn-success
+}
+}
+}
+col {
+md-7, lg-7
+}
+col-body {
+card {
+card-header
+card-body {
+card-title, card-text, btn-outline-success
+}
+}
+}
+}
+row {
+col {
+md-8, lg-8
+}
+col-body {
+card {
+card-body {
+card-title, card-text, btn-warning
+}
+card-footer
+}
+}
+col {
+md-4, lg-4
+}
+col-body {
+card {
+card-body {
+card-title, card-text, btn-outline-warning
+}
+}
+}
+}
+row {
+col {
+md-9, lg-9
+}
+col-body {
+card {
+card-body {
+card-title, card-text, btn-outline-primary
+}
+}
+}
+col {
+md-3, lg-3
+}
+col-body {
+card {
+card-body {
+card-title, card-text
+}
+}
+}
+}
+row {
+col {
+md-10, lg-10
+}
+col-body {
+card {
+card-body {
+card-title, card-text, btn-outline-secondary
+}
+}
+}
+col {
+md-2, lg-2
+}
+col-body {
+card {
+card-body {
+card-title, card-text
+}
+}
+}
+}
+}
