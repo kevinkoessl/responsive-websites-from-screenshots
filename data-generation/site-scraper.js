@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const targetDirectory = './datasets';
-const numberOfSamples = 210;
+const numberOfSamples = 1750;
 
 (async () => {
     const browser = await puppeteer.launch();
@@ -15,7 +15,7 @@ const numberOfSamples = 210;
 
     for (let i = 0; i < numberOfSamples; i++) {
         let sampleDirectoryName = `${targetDirectory}/${directoryName}`;
-
+        console.log('Generating Sample ' + (i + 1));
         await page.setViewport({
             width: 768,
             height: 1080,
